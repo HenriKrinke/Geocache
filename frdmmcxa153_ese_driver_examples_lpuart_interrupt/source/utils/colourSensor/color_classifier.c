@@ -11,12 +11,13 @@
 
 //    name, hCenter, sCenter, lCenter, hTol, sTol, lTol;
 ColorBucket Buckets[MAX_BUCKETS] = {
-    { "green", 127.0f,    0.40f,    0.36f,    20.0f,    0.15f,    0.15f },
-    { "white",  91.6f,    0.16f,    0.32f,    30.0f,    0.05f,    0.10f },
-    { "grey",   87.4f,    0.15f,    0.33f,    30.0f,    0.05f,    0.10f },
-    { "brown",  40.9f,    0.35f,    0.31f,    15.0f,    0.15f,    0.15f }
+    { "red",     30.8f,   0.35f,   0.32f,   20.0f,  0.20f, 0.20f },
+    { "blue",   128.4f,   0.13f,   0.33f,   20.0f,  0.20f, 0.20f },
+    { "green",   96.3f,   0.29f,   0.32f,   20.0f,  0.20f, 0.20f }
 };
-size_t bucketCount = 4;
+
+
+size_t bucketCount = 3;
 
 RGB normalizeRGB(uint16_t r, uint16_t g, uint16_t b, uint16_t c) {
     if (c == 0) c = 1;

@@ -2,7 +2,7 @@ C:\Users\henri\Documents\MCUXpressoIDE_24.12.148\workspace\frdmmcxa153_ese_drive
 C:\Users\henri\Documents\MCUXpressoIDE_24.12.148\workspace\frdmmcxa153_ese_driver_examples_lpuart_interrupt\CMSIS/core_cm33.h:2449:22:__NVIC_ClearPendingIRQ	16	static
 C:\Users\henri\Documents\MCUXpressoIDE_24.12.148\workspace\frdmmcxa153_ese_driver_examples_lpuart_interrupt\CMSIS/core_cm33.h:2555:22:__NVIC_SetPriority	16	static
 ../source/utils/joystick/joystick.c:18:6:joystick_init	24	static
-../source/utils/joystick/joystick.c:60:6:GPIO1_IRQHandler	8	static
-../source/utils/joystick/joystick.c:73:6:joystick_sw	4	static
-../source/utils/joystick/joystick.c:85:10:joystick_vrx	16	static
-../source/utils/joystick/joystick.c:106:10:joystick_vry	16	static
+../source/utils/joystick/joystick.c:61:6:GPIO1_IRQHandler	8	static
+../source/utils/joystick/joystick.c:74:6:joystick_sw	8	static
+../source/utils/joystick/joystick.c:87:10:joystick_vrx	16	static
+../source/utils/joystick/joystick.c:108:10:joystick_vry	16	static

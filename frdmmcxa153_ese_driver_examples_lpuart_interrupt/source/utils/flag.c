@@ -8,6 +8,8 @@
 #include <stdbool.h>
 #include "lcdScreen/lcd.h"
 #include "../games/gpsGame/gpsGame.h"
+#include "comProtocols/Lpuart/lpuart2_interrupt.h"
+
 #include "colourSensor/color_classifier.h"
 #include <stdlib.h>
 #include <stdio.h>
@@ -104,6 +106,12 @@ void LCDupdate()
 	            sprintf(word, "%-16s", "Wait for fix...");
 	            lcd_send_string(word);
 	            break;
+	        case 5:
+	        	lcd_set_cursor(0, 0);
+	        	sprintf(word, "%-16s", "Box is tilted!!!!");
+	        	lcd_send_string(word);
+	        	break;
 	    }
+
 
 }

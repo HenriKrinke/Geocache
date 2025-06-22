@@ -174,7 +174,6 @@ void lm35d_init(void)
     // 5.
     //
     uint16_t value = (uint16_t)ADC0->GCC[0];
-
     // 6.
     //
     float gain_adjustment = (131072.0f)/(131072.0f-(float)value);
@@ -285,7 +284,6 @@ uint16_t adc0_sample_channel_08(void)
 uint8_t lm35d_get_temperature(void)
 {
     uint16_t sample = adc0_sample_channel_08();
-
     // Step 1: Convert ADC sample to voltage (0-3.3V)
     float voltage = ((float)sample / 65535.0f) * 3.3f;
 
@@ -294,7 +292,7 @@ uint8_t lm35d_get_temperature(void)
 
     // Step 3: Convert Kelvin to Celsius
     float temp_celsius = temp_kelvin - 273.15f;
-
+    printf("%lf\n", temp_celsius);
     // Return as integer (rounding to nearest integer)
     return (uint8_t)temp_celsius;
 }

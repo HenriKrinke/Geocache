@@ -97,6 +97,7 @@ bool f_pop(fifo_t *f, uint8_t *data)
         f->tail = (f->tail + 1) & f->mask;
 
         // Read data
+
         *data = f->data[f->tail];
 
         // Decrement count

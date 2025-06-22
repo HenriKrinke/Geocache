@@ -5,4 +5,5 @@ C:\Users\henri\Documents\MCUXpressoIDE_24.12.148\workspace\frdmmcxa153_ese_drive
 ../source/utils/comProtocols/Lpuart/lpuart0_interrupt.c:143:6:lpuart0_putchar	16	static
 ../source/utils/comProtocols/Lpuart/lpuart0_interrupt.c:153:5:lpuart0_getchar	16	static
 ../source/utils/comProtocols/Lpuart/lpuart0_interrupt.c:166:10:lpuart0_rxcnt	8	static
-../source/utils/comProtocols/Lpuart/lpuart0_interrupt.c:171:6:LPUART0_IRQHandler	16	static
+../source/utils/comProtocols/Lpuart/lpuart0_interrupt.c:170:6:flushFifo	4	static
+../source/utils/comProtocols/Lpuart/lpuart0_interrupt.c:176:6:LPUART0_IRQHandler	16	static

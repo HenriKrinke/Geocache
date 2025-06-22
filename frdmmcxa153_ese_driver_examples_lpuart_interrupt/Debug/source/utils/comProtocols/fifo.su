@@ -1,4 +1,4 @@
 ../source/utils/comProtocols/fifo.c:35:6:f_init	24	static
 ../source/utils/comProtocols/fifo.c:58:6:f_push	32	static
 ../source/utils/comProtocols/fifo.c:87:6:f_pop	32	static
-../source/utils/comProtocols/fifo.c:116:17:f_cnt	16	static
+../source/utils/comProtocols/fifo.c:117:17:f_cnt	16	static

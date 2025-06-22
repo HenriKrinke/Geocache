@@ -1,3 +1,3 @@
 ../source/utils/temperatureSensor/lm35d_polling.c:54:6:lm35d_init	112	static
-../source/utils/temperatureSensor/lm35d_polling.c:220:10:adc0_sample_channel_08	16	static
-../source/utils/temperatureSensor/lm35d_polling.c:285:9:lm35d_get_temperature	24	static
+../source/utils/temperatureSensor/lm35d_polling.c:219:10:adc0_sample_channel_08	16	static
+../source/utils/temperatureSensor/lm35d_polling.c:284:9:lm35d_get_temperature	24	static

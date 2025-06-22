@@ -8,12 +8,12 @@
 #ifndef GAMES_LEVELTWO_LEVELTWO_H_
 #define GAMES_LEVELTWO_LEVELTWO_H_
 #include <stdbool.h>
-bool levelTwo();
+void levelTwo();
 
 enum Colors
 {
-BLUE,
 RED,
+BLUE,
 GREEN,
 };
 

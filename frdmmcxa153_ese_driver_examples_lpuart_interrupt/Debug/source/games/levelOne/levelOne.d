@@ -3,6 +3,7 @@ source/games/levelOne/levelOne.o source/games/levelOne/levelOne.d: \
  ../source/games/levelOne/../../utils/joystick/joystick.h \
  ../source/games/levelOne/../../utils/lcdScreen/lcd.h \
  ../source/games/levelOne/../../utils/gps/gps.h \
+ ../source/games/levelOne/../../utils/flag.h \
  ../source/games/levelOne/../../utils/comProtocols/Lpuart/lpuart2_interrupt.h \
  C:\Users\henri\Documents\MCUXpressoIDE_24.12.148\workspace\frdmmcxa153_ese_driver_examples_lpuart_interrupt\device/MCXA153.h \
  C:\Users\henri\Documents\MCUXpressoIDE_24.12.148\workspace\frdmmcxa153_ese_driver_examples_lpuart_interrupt\device\periph/PERI_ADC.h \
@@ -54,6 +55,7 @@ source/games/levelOne/levelOne.o source/games/levelOne/levelOne.d: \
 ../source/games/levelOne/../../utils/joystick/joystick.h:
 ../source/games/levelOne/../../utils/lcdScreen/lcd.h:
 ../source/games/levelOne/../../utils/gps/gps.h:
+../source/games/levelOne/../../utils/flag.h:
 ../source/games/levelOne/../../utils/comProtocols/Lpuart/lpuart2_interrupt.h:
 C:\Users\henri\Documents\MCUXpressoIDE_24.12.148\workspace\frdmmcxa153_ese_driver_examples_lpuart_interrupt\device/MCXA153.h:
 C:\Users\henri\Documents\MCUXpressoIDE_24.12.148\workspace\frdmmcxa153_ese_driver_examples_lpuart_interrupt\device\periph/PERI_ADC.h:

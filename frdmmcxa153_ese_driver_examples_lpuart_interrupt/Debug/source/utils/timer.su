@@ -1,7 +1,7 @@
 C:\Users\henri\Documents\MCUXpressoIDE_24.12.148\workspace\frdmmcxa153_ese_driver_examples_lpuart_interrupt\CMSIS/core_cm33.h:2555:22:__NVIC_SetPriority	16	static
 C:\Users\henri\Documents\MCUXpressoIDE_24.12.148\workspace\frdmmcxa153_ese_driver_examples_lpuart_interrupt\CMSIS/core_cm33.h:3108:26:SysTick_Config	16	static
-../source/utils/timer.c:14:6:timerInit	8	static
-../source/utils/timer.c:19:6:getMs	4	static
-../source/utils/timer.c:23:6:getWon	4	static
-../source/utils/timer.c:27:6:setWon	16	static
-../source/utils/timer.c:31:6:SysTick_Handler	8	static
+../source/utils/timer.c:15:6:timerInit	8	static
+../source/utils/timer.c:20:6:getMs	4	static
+../source/utils/timer.c:24:6:getWon	4	static
+../source/utils/timer.c:28:6:setWon	16	static
+../source/utils/timer.c:32:6:SysTick_Handler	16	static

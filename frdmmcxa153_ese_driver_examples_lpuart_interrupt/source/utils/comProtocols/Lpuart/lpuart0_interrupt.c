@@ -167,7 +167,12 @@ uint32_t lpuart0_rxcnt(void)
 {
     return f_cnt(&rx);
 }
+void flushFifo()
+{
+rx.tail = (rx.tail+1)&rx.mask;
+rx.cnt--;
 
+}
 void LPUART0_IRQHandler(void)
 {
     uint8_t c;
@@ -202,8 +207,7 @@ void LPUART0_IRQHandler(void)
             // Error: receive FIFO full!!
             // Should not happen, so freeze the system. Update FIFO size to
             // match your application.
-            while (1)
-            {}
+        	flushFifo();
         }
     }
 }

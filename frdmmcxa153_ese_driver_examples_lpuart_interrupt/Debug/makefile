@@ -10,6 +10,7 @@ RM := rm -rf
 -include sources.mk
 -include startup/subdir.mk
 -include source/utils/temperatureSensor/subdir.mk
+-include source/utils/solenoid/subdir.mk
 -include source/utils/sdCard/FatFs/subdir.mk
 -include source/utils/sdCard/subdir.mk
 -include source/utils/lcdScreen/subdir.mk
@@ -20,9 +21,12 @@ RM := rm -rf
 -include source/utils/comProtocols/GPIO/subdir.mk
 -include source/utils/comProtocols/subdir.mk
 -include source/utils/colourSensor/subdir.mk
+-include source/utils/buttonMatrix/subdir.mk
 -include source/utils/subdir.mk
 -include source/games/levelTwo/subdir.mk
+-include source/games/levelThree/subdir.mk
 -include source/games/levelOne/subdir.mk
+-include source/games/levelFour/subdir.mk
 -include source/games/gpsGame/subdir.mk
 -include source/subdir.mk
 -include device/subdir.mk

@@ -4,12 +4,15 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS += \
+../source/utils/comProtocols/GPIO/gpio_input.c \
 ../source/utils/comProtocols/GPIO/gpio_output.c 
 
 C_DEPS += \
+./source/utils/comProtocols/GPIO/gpio_input.d \
 ./source/utils/comProtocols/GPIO/gpio_output.d 
 
 OBJS += \
+./source/utils/comProtocols/GPIO/gpio_input.o \
 ./source/utils/comProtocols/GPIO/gpio_output.o 
 
 
@@ -25,7 +28,7 @@ source/utils/comProtocols/GPIO/%.o: ../source/utils/comProtocols/GPIO/%.c source
 clean: clean-source-2f-utils-2f-comProtocols-2f-GPIO
 
 clean-source-2f-utils-2f-comProtocols-2f-GPIO:
-	-$(RM) ./source/utils/comProtocols/GPIO/gpio_output.d ./source/utils/comProtocols/GPIO/gpio_output.o
+	-$(RM) ./source/utils/comProtocols/GPIO/gpio_input.d ./source/utils/comProtocols/GPIO/gpio_input.o ./source/utils/comProtocols/GPIO/gpio_output.d ./source/utils/comProtocols/GPIO/gpio_output.o
 
 .PHONY: clean-source-2f-utils-2f-comProtocols-2f-GPIO
 

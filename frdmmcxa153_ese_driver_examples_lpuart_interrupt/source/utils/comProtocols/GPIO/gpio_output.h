@@ -33,7 +33,8 @@
 #define GPIO_OUTPUT_H
 
 #include <MCXA153.h>
+#include <stdbool.h>
 
 void gpio_output_init(void);
-
+void setPin(int port, int pin, bool value);
 #endif // GPIO_OUTPUT_H

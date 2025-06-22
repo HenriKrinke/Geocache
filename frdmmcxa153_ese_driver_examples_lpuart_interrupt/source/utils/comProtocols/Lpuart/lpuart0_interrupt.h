@@ -38,5 +38,5 @@ void lpuart0_init(const uint32_t baudrate);
 void lpuart0_putchar(const int data);
 int lpuart0_getchar(void);
 uint32_t lpuart0_rxcnt(void);
-
+void flushFifo();
 #endif // LPUART0_INTERRUPT_H

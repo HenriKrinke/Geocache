@@ -16,9 +16,12 @@ OBJS :=
 SUBDIRS := \
 device \
 source/games/gpsGame \
+source/games/levelFour \
 source/games/levelOne \
+source/games/levelThree \
 source/games/levelTwo \
 source \
+source/utils/buttonMatrix \
 source/utils/colourSensor \
 source/utils/comProtocols/GPIO \
 source/utils/comProtocols/Lpi2c \
@@ -30,6 +33,7 @@ source/utils/joystick \
 source/utils/lcdScreen \
 source/utils/sdCard/FatFs \
 source/utils/sdCard \
+source/utils/solenoid \
 source/utils/temperatureSensor \
 startup \
 

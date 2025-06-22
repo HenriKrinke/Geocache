@@ -1,9 +1,9 @@
 ../source/games/levelOne/levelOne.c:28:6:init_hardware	8	static
-../source/games/levelOne/levelOne.c:35:11:getJoystickDirection	16	static
-../source/games/levelOne/levelOne.c:47:6:showArrow	32	static
-../source/games/levelOne/levelOne.c:63:6:generateNewArrow	8	static
-../source/games/levelOne/levelOne.c:70:6:resetGame	8	static
-../source/games/levelOne/levelOne.c:88:6:startCountdown	16	static
-../source/games/levelOne/levelOne.c:119:6:increaseScore	4	static
-../source/games/levelOne/levelOne.c:125:6:winGame	8	static
-../source/games/levelOne/levelOne.c:142:6:levelOne	16	static
+../source/games/levelOne/levelOne.c:34:11:getJoystickDirection	16	static
+../source/games/levelOne/levelOne.c:46:6:showArrow	32	static
+../source/games/levelOne/levelOne.c:62:6:generateNewArrow	8	static
+../source/games/levelOne/levelOne.c:69:6:resetGame	8	static
+../source/games/levelOne/levelOne.c:87:6:startCountdown	16	static
+../source/games/levelOne/levelOne.c:118:6:increaseScore	4	static
+../source/games/levelOne/levelOne.c:124:6:winGame	8	static
+../source/games/levelOne/levelOne.c:141:6:levelOne	16	static

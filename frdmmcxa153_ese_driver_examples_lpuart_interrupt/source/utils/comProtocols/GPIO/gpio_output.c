@@ -34,7 +34,7 @@
  *
  *****************************************************************************/
 #include "gpio_output.h"
-
+#include <stdbool.h>
 // -----------------------------------------------------------------------------
 // Local type definitions
 // -----------------------------------------------------------------------------
@@ -63,14 +63,19 @@ void gpio_output_init(void)
     // Enable modules and leave others unchanged
     // GPIO3: [1] = Peripheral clock is enabled
     // PORT3: [1] = Peripheral clock is enabled
-    MRCC0->MRCC_GLB_CC1_SET = MRCC_MRCC_GLB_CC1_PORT3(1);
-    MRCC0->MRCC_GLB_CC1_SET = MRCC_MRCC_GLB_CC1_GPIO3(1);
+	MRCC0->MRCC_GLB_CC0_SET = MRCC_MRCC_GLB_CC0_PORT1(1);
+		MRCC0->MRCC_GLB_CC0_SET = MRCC_MRCC_GLB_CC0_PORT2(1);
+		MRCC0->MRCC_GLB_CC1_SET = MRCC_MRCC_GLB_CC1_PORT3(1);
+		MRCC0->MRCC_GLB_CC1_SET = MRCC_MRCC_GLB_CC1_GPIO1(1);
+		MRCC0->MRCC_GLB_CC1_SET = MRCC_MRCC_GLB_CC1_GPIO2(1);
+		MRCC0->MRCC_GLB_CC1_SET = MRCC_MRCC_GLB_CC1_GPIO3(1);
 
-    // Release modules from reset and leave others unchanged
-    // GPIO3: [1] = Peripheral is released from reset
-    // PORT3: [1] = Peripheral is released from reset
-    MRCC0->MRCC_GLB_RST1_SET = MRCC_MRCC_GLB_CC1_PORT3(1);
-    MRCC0->MRCC_GLB_RST1_SET = MRCC_MRCC_GLB_CC1_GPIO3(1);
+		MRCC0->MRCC_GLB_RST0_SET = MRCC_MRCC_GLB_CC0_PORT1(1);
+		MRCC0->MRCC_GLB_RST0_SET = MRCC_MRCC_GLB_CC0_PORT2(1);
+		MRCC0->MRCC_GLB_RST1_SET = MRCC_MRCC_GLB_CC1_PORT3(1);
+		MRCC0->MRCC_GLB_RST1_SET = MRCC_MRCC_GLB_CC1_GPIO1(1);
+		MRCC0->MRCC_GLB_RST1_SET = MRCC_MRCC_GLB_CC1_GPIO2(1);
+		MRCC0->MRCC_GLB_RST1_SET = MRCC_MRCC_GLB_CC1_GPIO3(1);
 
     // From section 11.4 Initialization (NXP, 2024)
     //
@@ -96,26 +101,33 @@ void gpio_output_init(void)
     // SRE: [0] = Fast
     // PE:  [0] = Disables
     // PS:  [0] = n.a.
-    PORT3->PCR[13] = PORT_PCR_LK(1);
     PORT3->PCR[12] = PORT_PCR_LK(1);
-    PORT3->PCR[0] = PORT_PCR_LK(1);
 
-    // From section 12.5 Initialization (NXP, 2024)
-    //
-    // 1. Initialize the GPIO pins for the output function:
-    //    a. Configure the output logic value for each pin by using Port Data
-    //       Output (PDOR).
-    //    b. Configure the direction for each pin by using Port Data Direction
-    //       (PDDR).
-    // 2. Interrupt function not used.
+    PORT2->PCR[4] = PORT_PCR_LK(1);
+    PORT2->PCR[5] = PORT_PCR_LK(1);
+    PORT2->PCR[6] = PORT_PCR_LK(1);
 
-    // 1. a.
-    //
-    // PDO13, PDO12 and PDO0: [1] = Logic level 1 – LEDs off
-    GPIO3->PDOR |= (1<<13) | (1<<12) | (1<<0);
+    GPIO3->PCOR |=  (1<<12);
 
-    // 1. b.
-    //
-    // PDD13, PDO12 and PDO0: [1] = Output
-    GPIO3->PDDR |= (1<<13) | (1<<12) | (1<<0);
+    GPIO3->PDDR |=  (1<<12);
+
+    GPIO2->PDDR |=  (1<<4) | (1<<5)|(1<<6);
+    GPIO2->PSOR |= (1 << 4) | (1 << 5) | (1 << 6); // Set HIGH (inactive)
+
+}
+void setPin(int port, int pin, bool value) {
+    switch(port) {
+        case 1:
+            if (value) GPIO1->PSOR = (1 << pin);  // Set
+            else       GPIO1->PCOR = (1 << pin);  // Clear
+            break;
+        case 2:
+            if (value) GPIO2->PSOR = (1 << pin);
+            else       GPIO2->PCOR = (1 << pin);
+            break;
+        case 3:
+            if (value) GPIO3->PSOR = (1 << pin);
+            else       GPIO3->PCOR = (1 << pin);
+            break;
+    }
 }

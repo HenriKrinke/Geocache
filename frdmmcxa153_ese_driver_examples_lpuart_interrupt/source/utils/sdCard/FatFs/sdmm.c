@@ -39,27 +39,14 @@
 #include <MCXA153.h>
 
 #define CYCLESUS 12
-//#define DO_INIT()					/* Initialize port for MMC DO as input */
-#define DO	(GPIO1->PDIR & (1<<0))	/* Test for MMC DO ('H':true, 'L':false) */
-
-//#define DI_INIT()	DDRB  |= 0x02	/* Initialize port for MMC DI as output */
+#define DO	(GPIO1->PDIR & (1<<0))	/* Test for  DO ('H':true, 'L':false) */
 //DO from microcontroller DI from sd card
 #define DI_H()	GPIO1->PDOR |= (1<<2)
-//PORTB |= 0x02	/* Set MMC DI "high" */
 #define DI_L()		GPIO1->PCOR |= (1<<2)
-//PORTB &= 0xFD	/* Set MMC DI "low" */
-
-//#define CK_INIT()	DDRB  |= 0x04	/* Initialize port for MMC SCLK as output */
 #define CK_H()	GPIO1->PDOR |= (1<<1)
-//PORTB |= 0x04	/* Set MMC SCLK "high" */
 #define	CK_L() GPIO1->PCOR |= (1<<1)
-//PORTB &= 0xFB	/* Set MMC SCLK "low" */
-
-//#define CS_INIT()	DDRB  |= 0x08	/* Initialize port for MMC CS as output */
 #define	CS_H()		    GPIO1->PDOR |= (1<<3)
-//PORTB |= 0x08	/* Set MMC CS "high" */
 #define CS_L()		GPIO1->PCOR |= (1<<3)
-//PORTB &= 0xF7	/* Set MMC CS "low" */
 
 void dly_us(int n)
 {
@@ -419,7 +406,6 @@ DSTATUS disk_initialize (
 	if (drv) return RES_NOTRDY;
 
 	dly_us(10000);			/* 10ms */
-	//probably will already happen in gpio or spi init for the final code
 	MRCC0->MRCC_GLB_CC0_SET = MRCC_MRCC_GLB_CC0_PORT1(1);
 	MRCC0->MRCC_GLB_CC1_SET = MRCC_MRCC_GLB_CC1_GPIO1(1);
 

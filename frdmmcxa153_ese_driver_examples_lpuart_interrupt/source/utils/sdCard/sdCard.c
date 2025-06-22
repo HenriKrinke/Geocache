@@ -56,7 +56,7 @@ if (fr == FR_OK) {
 	        	    		    			if(c == '#') //handshake by laptop to declare its done
 	        	    		    			{done = 1;}
 	        	    		    			else{
-	        	    		    			f_printf("%c", c);
+	        	    		    			f_printf("%c,", c);
 	        	    		    			}
 	        	    		    			//needs to print 4 locations
 	    	    		}
@@ -66,6 +66,7 @@ if (fr == FR_OK) {
 }
 void sdReadSettings(coordinates_t* target, int level)
 {
+	disableLpuart2();
 	char buf[512];
 	sdBufWrite(SETFILE,buf,sizeof(buf)/sizeof(char));
     char *ptr = &buf[0];
@@ -90,7 +91,7 @@ void sdReadSettings(coordinates_t* target, int level)
 	field++;
 	token = strsep(&ptr, ",");
 	}
-
+    enableLpuart2();
 }
 void sdLog(uint8_t temp, coordinates_t* pos)
 {

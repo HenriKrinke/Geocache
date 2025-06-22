@@ -7,9 +7,9 @@
 #include "../../utils/joystick/joystick.h"
 #include "../../utils/lcdScreen/lcd.h"
 #include "../../utils/gps/gps.h"
+#include "../../utils/flag.h"
 #include "../../utils/comProtocols/Lpuart/lpuart2_interrupt.h"
 #include "delay.h"
-//#include "lpi2c0_controller_interrupt.h" //probably not needed since only for the init
 #include <stdbool.h>
 #include <stdint.h>
 #include <stdlib.h>
@@ -27,8 +27,7 @@ Direction currentArrow = NONE;
 
 void init_hardware(void) {
     joystick_init();
-    //lpi2c0_controller_init();
-    //lcd_init();
+    ;
     lcd_clear();
 }
 
@@ -218,7 +217,7 @@ bool levelOne(void) {
             increaseScore();
             if (score >= MAX_SCORE) {
                 winGame();
-                setWon(1);
+                setSuccessFlag(true);
                 return true;
             } else {
                 generateNewArrow();

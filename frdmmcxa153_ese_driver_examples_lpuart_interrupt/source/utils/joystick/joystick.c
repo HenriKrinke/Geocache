@@ -6,7 +6,7 @@
 
 #include "joystick.h"
 #include "MCXA153.h"
-
+#include "delay.h"
 // ----------------------------------------------------------------------------
 // Local variables
 // ----------------------------------------------------------------------------
@@ -35,6 +35,7 @@ void joystick_init(void)
     NVIC_EnableIRQ(GPIO1_IRQn);
 
     // ---------- ADC0 setup ----------
+
     MRCC0->MRCC_ADC0_CLKSEL = MRCC_MRCC_ADC0_CLKSEL_MUX(0);
     MRCC0->MRCC_ADC0_CLKDIV = 0;
 
@@ -74,6 +75,7 @@ bool joystick_sw(void)
 {
     if (joystick_sw_press_count > 0) {
         joystick_sw_press_count--;
+        delay_ms(10);
         return true;
     }
     return false;
@@ -86,7 +88,7 @@ uint16_t joystick_vrx(void)
 {
     ADC0->STAT |= ADC_STAT_TCOMP_INT_MASK;
     ADC0->TSTAT |= ADC_TSTAT_TCOMP_FLAG(0b0001);
-    ADC0->CMD[0].CMDL = ADC_CMDL_MODE(1) | ADC_CMDL_ADCH(10);
+    ADC0->CMD[0].CMDL = ADC_CMDL_MODE(1) | ADC_CMDL_ADCH(13);
     ADC0->TCTRL[0] = ADC_TCTRL_TCMD(0b001);
     ADC0->SWTRIG = ADC_SWTRIG_SWT0(1);
 
@@ -107,7 +109,7 @@ uint16_t joystick_vry(void)
 {
     ADC0->STAT |= ADC_STAT_TCOMP_INT_MASK;
     ADC0->TSTAT |= ADC_TSTAT_TCOMP_FLAG(0b0001);
-    ADC0->CMD[0].CMDL = ADC_CMDL_MODE(1) | ADC_CMDL_ADCH(11);
+    ADC0->CMD[0].CMDL = ADC_CMDL_MODE(1) | ADC_CMDL_ADCH(12);
     ADC0->TCTRL[0] = ADC_TCTRL_TCMD(0b001);
     ADC0->SWTRIG = ADC_SWTRIG_SWT0(1);
 

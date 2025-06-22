@@ -6,14 +6,25 @@
 C_SRCS += \
 ../source/utils/joystick/joystick.c 
 
+S_SRCS += \
+../source/utils/joystick/delay.s 
+
 C_DEPS += \
 ./source/utils/joystick/joystick.d 
 
 OBJS += \
+./source/utils/joystick/delay.o \
 ./source/utils/joystick/joystick.o 
 
 
 # Each subdirectory must supply rules for building sources it contributes
+source/utils/joystick/%.o: ../source/utils/joystick/%.s source/utils/joystick/subdir.mk
+	@echo 'Building file: $<'
+	@echo 'Invoking: MCU Assembler'
+	arm-none-eabi-gcc -c -x assembler-with-cpp -D__REDLIB__ -I"C:\Users\henri\Documents\MCUXpressoIDE_24.12.148\workspace\frdmmcxa153_ese_driver_examples_lpuart_interrupt\source" -I"C:\Users\henri\Documents\MCUXpressoIDE_24.12.148\workspace\frdmmcxa153_ese_driver_examples_lpuart_interrupt\CMSIS" -I"C:\Users\henri\Documents\MCUXpressoIDE_24.12.148\workspace\frdmmcxa153_ese_driver_examples_lpuart_interrupt\CMSIS\m-profile" -I"C:\Users\henri\Documents\MCUXpressoIDE_24.12.148\workspace\frdmmcxa153_ese_driver_examples_lpuart_interrupt\device" -I"C:\Users\henri\Documents\MCUXpressoIDE_24.12.148\workspace\frdmmcxa153_ese_driver_examples_lpuart_interrupt\device\periph" -g3 -gdwarf-4 -mcpu=cortex-m33+nodsp -mthumb -D__REDLIB__ -specs=redlib.specs -o "$@" "$<"
+	@echo 'Finished building: $<'
+	@echo ' '
+
 source/utils/joystick/%.o: ../source/utils/joystick/%.c source/utils/joystick/subdir.mk
 	@echo 'Building file: $<'
 	@echo 'Invoking: MCU C Compiler'
@@ -25,7 +36,7 @@ source/utils/joystick/%.o: ../source/utils/joystick/%.c source/utils/joystick/su
 clean: clean-source-2f-utils-2f-joystick
 
 clean-source-2f-utils-2f-joystick:
-	-$(RM) ./source/utils/joystick/joystick.d ./source/utils/joystick/joystick.o
+	-$(RM) ./source/utils/joystick/delay.o ./source/utils/joystick/joystick.d ./source/utils/joystick/joystick.o
 
 .PHONY: clean-source-2f-utils-2f-joystick
 

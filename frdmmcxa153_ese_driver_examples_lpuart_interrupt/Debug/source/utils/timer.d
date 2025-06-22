@@ -47,6 +47,7 @@ source/utils/timer.o source/utils/timer.d: ../source/utils/timer.c \
  C:\Users\henri\Documents\MCUXpressoIDE_24.12.148\workspace\frdmmcxa153_ese_driver_examples_lpuart_interrupt\device\periph/PERI_WWDT.h \
  ../source/utils/gps/gps.h ../source/utils/sdCard/sdCard.h \
  C:/Users/henri/Documents/MCUXpressoIDE_24.12.148/workspace/frdmmcxa153_ese_driver_examples_lpuart_interrupt/source/utils/gps/gps.h \
+ ../source/utils/temperatureSensor/lm35d_polling.h \
  ../source/utils/timer.h
 C:\Users\henri\Documents\MCUXpressoIDE_24.12.148\workspace\frdmmcxa153_ese_driver_examples_lpuart_interrupt\device/MCXA153.h:
 C:\Users\henri\Documents\MCUXpressoIDE_24.12.148\workspace\frdmmcxa153_ese_driver_examples_lpuart_interrupt\device\periph/PERI_ADC.h:
@@ -97,4 +98,5 @@ C:\Users\henri\Documents\MCUXpressoIDE_24.12.148\workspace\frdmmcxa153_ese_drive
 ../source/utils/gps/gps.h:
 ../source/utils/sdCard/sdCard.h:
 C:/Users/henri/Documents/MCUXpressoIDE_24.12.148/workspace/frdmmcxa153_ese_driver_examples_lpuart_interrupt/source/utils/gps/gps.h:
+../source/utils/temperatureSensor/lm35d_polling.h:
 ../source/utils/timer.h:

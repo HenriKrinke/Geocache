@@ -1,0 +1,2 @@
+../source/utils/comProtocols/GPIO/gpio_input.c:10:6:gpio_input_init	4	static
+../source/utils/comProtocols/GPIO/gpio_input.c:35:6:checkPin	16	static

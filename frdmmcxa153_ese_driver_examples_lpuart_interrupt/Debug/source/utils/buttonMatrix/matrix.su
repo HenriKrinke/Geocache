@@ -1,0 +1,2 @@
+../source/utils/buttonMatrix/matrix.c:32:6:scanMatrix	24	static
+../source/utils/buttonMatrix/matrix.c:52:6:detectButtonPress	16	static

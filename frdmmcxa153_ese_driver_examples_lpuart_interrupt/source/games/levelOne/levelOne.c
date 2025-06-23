@@ -27,7 +27,6 @@ Direction currentArrow = NONE;
 
 void init_hardware(void) {
     joystick_init();
-    ;
     lcd_clear();
 }
 

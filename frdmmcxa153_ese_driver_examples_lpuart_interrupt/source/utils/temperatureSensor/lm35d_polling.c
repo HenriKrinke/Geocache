@@ -292,7 +292,7 @@ uint8_t lm35d_get_temperature(void)
 
     // Step 3: Convert Kelvin to Celsius
     float temp_celsius = temp_kelvin - 273.15f;
-    printf("%lf\n", temp_celsius);
+    //printf("%lf\n", temp_celsius);
     // Return as integer (rounding to nearest integer)
     return (uint8_t)temp_celsius;
 }

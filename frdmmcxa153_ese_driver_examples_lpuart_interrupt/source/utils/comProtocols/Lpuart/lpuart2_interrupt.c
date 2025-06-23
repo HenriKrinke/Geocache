@@ -210,8 +210,9 @@ void LPUART2_IRQHandler(void)
             // Error: receive FIFO full!!
             // Should not happen, so freeze the system. Update FIFO size to
             // match your application.
-            while (1)
-            {}
+        	 rx.tail = (rx.tail + 1) & rx.mask; // Move tail forward
+        	            rx.cnt--;                          // Adjust the count
+        	            f_push(&rx, c);
         }
     }
 }

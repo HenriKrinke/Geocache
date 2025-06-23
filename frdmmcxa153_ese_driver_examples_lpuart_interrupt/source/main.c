@@ -292,10 +292,11 @@ int main(void)
 #include "utils/comProtocols/Lpi2c/lpi2c0_controller_interrupt.h"
 #include "utils/sdCard/sdCard.h"
 #include "utils/joystick/joystick.h"
+#include "utils/joystick/delay.h"
 #include "utils/lcdScreen/lcd.h"
 #include "utils/colourSensor/tcs34725_polling.h"
 #include "utils/temperatureSensor/lm35d_polling.h"
-//#include "utils/solenoid/solenoid.h"
+#include "utils/solenoid/solenoid.h"
 #include "utils/flag.h"
 #include "utils/timer.h"
 #include <math.h>
@@ -323,7 +324,9 @@ enum gameState
 LEVEL1,
 LEVEL2,
 LEVEL3,
-LEVEL4
+LEVEL4,
+SOLVED,
+LOCK
 };
 coordinates_t targets[4];
 // -----------------------------------------------------------------------------
@@ -339,7 +342,7 @@ int started = 1;
 // -----------------------------------------------------------------------------
 // Main application
 // -----------------------------------------------------------------------------
-
+int firstTime = 0;
 
 int main(void)
 {
@@ -351,9 +354,9 @@ int main(void)
 	    lcd_init();
 	    gpio_output_init();
 	    gpio_input_init();
-	    gpsInit();
 	    timerInit();
 	    lm35d_init();
+	    gpsInit();
 	    int gameState = LEVEL1; //change to settings from csv file
 
 
@@ -361,7 +364,7 @@ int main(void)
 	  __enable_irq();
 
 	  sdWrite();
-
+	  genPw();
 	  	lcd_clear();
 	   //use f_unlink to delete the file after the run
 
@@ -369,14 +372,11 @@ int main(void)
 	    {
 
 	    	updatePosition();
-	    	//levelFour();
 
-
-
-	    	LCDupdate();
 
 	    	if(*getSuccessFlag())
 	    	{gameState++;
+	    	setLevelFlag(gameState);
 	    	setSuccessFlag(false);}
 
 	    	if(getFix() == 0)
@@ -389,34 +389,99 @@ int main(void)
 	    	{
 
 	    	case LEVEL1:
+	    		if(firstTime == LEVEL1)
+	    		{
+
 	        	sdReadSettings(getTarget(),LEVEL1);
+		    	updatePosition();
+		    	firstTime++;
+
+	    		}
+	    		else
+	    		{
+	    		setLCDFlag(1);
+				if(distance(getPosition(),getTarget()) > 10)
+	    		{
 	        	levelOne();
+	    		}
+	    		}
 	    		//sdReadSettings(getTarget(),LEVEL1);
 	    		//add level One Gameloop
 	    		//needs to include updatePosition on every iteration as well so that logs work accurately
 	    	    break;
 	    	case LEVEL2:
+	    		if(firstTime == LEVEL2)
+	    		{
+		            disableLpuart2();
+		            lcd_set_cursor(0, 0);
+					lcd_send_string("You won!" );
+					delay_ms(5000);
+					lcd_set_cursor(0,0);
+					lcd_send_string("30s per clue" );
+					lcd_set_cursor(1,0);
+					lcd_send_string("5 looks per clue" );
+					delay_ms(10000);
+					enableLpuart2();
 
+		        	sdReadSettings(getTarget(),LEVEL2);
+		        	updatePosition();
+		        	firstTime++;
+	    		}
 	    		levelTwo();
 
 	    	    break;
 	    	case LEVEL3:
-	    		sdReadSettings(getTarget(),LEVEL3);
+	    		if(firstTime == LEVEL3)
+	    		{
+		            disableLpuart2();
+		            lcd_set_cursor(0, 0);
+					lcd_send_string("You won!" );
+					delay_ms(5000);
+					lcd_set_cursor(0,0);
+					lcd_send_string("Rules: Do not Tilt the" );
+					lcd_set_cursor(1,0);
+					lcd_send_string("box!!");
+					delay_ms(5000);
+					enableLpuart2();
+	    			sdReadSettings(getTarget(),LEVEL3);
+	    			updatePosition();
+	    			firstTime++;
+	    		}
 	    		levelThree();
 
 	    		//add level Three Gameloop
 	    		//needs to include updatePosition on every iteration as well so that logs work accurately
 	    		break;
 	    	case LEVEL4:
-	    		sdReadSettings(getTarget(),LEVEL4);
-	    		setWon(1);
+		    	levelFour();
+
 
 	    		//add level Four Gameloop
 	    		//needs to include updatePosition on every iteration as well so that logs work accurately
 	    	    break;
+	    	case SOLVED:
+	    		if(joystick_sw())
+	    		{if(firstTime == LEVEL3)
+	    		{
+		            disableLpuart2();
+		            lcd_set_cursor(0, 0);
+					lcd_send_string("Press the joystick and open the box quickly" );
+	    			firstTime++;
+	    		}
+	    			openLock();
+	    			delay_ms(5000);
+	    			closeLock();
+
+	    		}
+	    		break;
+
+
 
 	    	}
+
 	    	}
+	    	LCDupdate();
+
 	    	if(*getWon() == 1)
 	    	{
 	    		disableLpuart2();
@@ -427,11 +492,17 @@ int main(void)
 	    				if(c == '<')
 	    				{
 	    					sdReadLogs(); //send logs to laptop
+	    					lcd_clear();
+
+
 	    					}
 
 	    				else if(c == '>')
 	    		    	{
 	    		    		sdSettings(); //read settings from laptop
+
+	    		    		sdReadSettings(getTarget(),LEVEL1);
+	    		    		printf("%lf\n", getTarget()->lat);
 	    		   			}
 	    				else if(c == '*')
 	    				{
@@ -439,7 +510,7 @@ int main(void)
 	    				}
 	    		}
 	    		//printf("done");
-	    		setWon(2);
+	    		gameState++;
 	    	}
 
 

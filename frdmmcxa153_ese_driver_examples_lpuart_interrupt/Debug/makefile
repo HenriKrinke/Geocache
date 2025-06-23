@@ -21,7 +21,6 @@ RM := rm -rf
 -include source/utils/comProtocols/GPIO/subdir.mk
 -include source/utils/comProtocols/subdir.mk
 -include source/utils/colourSensor/subdir.mk
--include source/utils/buttonMatrix/subdir.mk
 -include source/utils/subdir.mk
 -include source/games/levelTwo/subdir.mk
 -include source/games/levelThree/subdir.mk

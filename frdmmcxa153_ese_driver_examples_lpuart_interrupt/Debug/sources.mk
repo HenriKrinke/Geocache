@@ -21,7 +21,6 @@ source/games/levelOne \
 source/games/levelThree \
 source/games/levelTwo \
 source \
-source/utils/buttonMatrix \
 source/utils/colourSensor \
 source/utils/comProtocols/GPIO \
 source/utils/comProtocols/Lpi2c \

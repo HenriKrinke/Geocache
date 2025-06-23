@@ -38,7 +38,7 @@ void sdWrite()
 	printf("%d",fr);
 	    	    	if (fr == FR_OK) {
 	        	    	if (fr == FR_OK) {
-	        	    		f_write(&Fil, "11.1,N,12,E,13.1,N,12,E,11.1,N,12,E,11.1,N,12,E\r\n",16  , &bw);	// Write data to the fil
+	        	    		f_write(&Fil, "51.9851,N,5.8987,E,51.9851,N,5.8987,E,51.9851,N,5.8987,E\r\n",62  , &bw);	// Write data to the fil
 	        	    		f_printf(&Fil, " %d \n\r", u);
 	    	    		}
 	    	    		fr = f_close(&Fil);
@@ -53,10 +53,11 @@ if (fr == FR_OK) {
 	        	    		while(!done)
 	        	    	{
 	        	    		    			char c = lpuart0_getchar();
+	        	    		    			printf("%c", c);
 	        	    		    			if(c == '#') //handshake by laptop to declare its done
 	        	    		    			{done = 1;}
 	        	    		    			else{
-	        	    		    			f_printf("%c,", c);
+	        	    		    			f_printf(&Fil,"%c,", c);
 	        	    		    			}
 	        	    		    			//needs to print 4 locations
 	    	    		}

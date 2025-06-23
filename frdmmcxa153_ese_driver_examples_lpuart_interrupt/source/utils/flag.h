@@ -14,6 +14,7 @@ int* getLCDFlag();
 void setSuccessFlag(bool flag);
 bool* getSuccessFlag();
 void LCDupdate();
+void setLevelFlag(int a);
 
 
 #endif /* UTILS_FLAG_H_ */

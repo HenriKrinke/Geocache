@@ -56,9 +56,10 @@ source/main.o source/main.d: ../source/main.c \
  ../source/utils/comProtocols/Lpuart/lpuart0_interrupt.h \
  ../source/utils/comProtocols/Lpi2c/lpi2c0_controller_interrupt.h \
  ../source/utils/sdCard/sdCard.h ../source/utils/joystick/joystick.h \
- ../source/utils/lcdScreen/lcd.h \
+ ../source/utils/joystick/delay.h ../source/utils/lcdScreen/lcd.h \
  ../source/utils/colourSensor/tcs34725_polling.h \
- ../source/utils/temperatureSensor/lm35d_polling.h ../source/utils/flag.h \
+ ../source/utils/temperatureSensor/lm35d_polling.h \
+ ../source/utils/solenoid/solenoid.h ../source/utils/flag.h \
  ../source/utils/timer.h
 C:\Users\henri\Documents\MCUXpressoIDE_24.12.148\workspace\frdmmcxa153_ese_driver_examples_lpuart_interrupt\device/MCXA153.h:
 C:\Users\henri\Documents\MCUXpressoIDE_24.12.148\workspace\frdmmcxa153_ese_driver_examples_lpuart_interrupt\device\periph/PERI_ADC.h:
@@ -120,8 +121,10 @@ C:/Users/henri/Documents/MCUXpressoIDE_24.12.148/workspace/frdmmcxa153_ese_drive
 ../source/utils/comProtocols/Lpi2c/lpi2c0_controller_interrupt.h:
 ../source/utils/sdCard/sdCard.h:
 ../source/utils/joystick/joystick.h:
+../source/utils/joystick/delay.h:
 ../source/utils/lcdScreen/lcd.h:
 ../source/utils/colourSensor/tcs34725_polling.h:
 ../source/utils/temperatureSensor/lm35d_polling.h:
+../source/utils/solenoid/solenoid.h:
 ../source/utils/flag.h:
 ../source/utils/timer.h:

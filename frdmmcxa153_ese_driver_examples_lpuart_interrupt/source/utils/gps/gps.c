@@ -57,6 +57,7 @@ void updatePosition()
 {
 	while(lpuart2_rxcnt() > 0)
 	{
+
 		char c = (char)lpuart2_getchar();
 		strncat(buffer, &c, 1);
 		if( c == '\n')

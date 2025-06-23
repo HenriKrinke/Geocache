@@ -8,6 +8,7 @@
 #include "gps/gps.h"
 #include "sdCard/sdCard.h"
 #include "temperatureSensor/lm35d_polling.h"
+#include "../games/gpsGame/gpsGame.h"
 #include "timer.h"
 int won = 0;
 int ms = 0;
@@ -33,8 +34,9 @@ void SysTick_Handler(void)
 {
 	 	ms++;
 
-	    if((ms % 10000) == 0 && won == 0 && getFix() == 0) // change fix condition to 1
+	    if((ms % 1000) == 0 && won == 0 && getFix() == 0) // change fix condition to 1
 	    {
+	    	//printf("%lf,%lf,%lf\n\r",getPosition()->lat,getTarget()->lat, distance(getPosition(),getTarget()));
 	    	sdLog(lm35d_get_temperature(), getPosition());
 	    }
 	    if((ms % 600000) == 0 && won == 0)

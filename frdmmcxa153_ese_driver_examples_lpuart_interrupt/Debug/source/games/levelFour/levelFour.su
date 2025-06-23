@@ -1,1 +1,5 @@
-../source/games/levelFour/levelFour.c:10:6:levelFour	8	static
+../source/games/levelFour/levelFour.c:26:6:levelFour	16	static
+../source/games/levelFour/levelFour.c:61:11:getJoystickDir	16	static
+../source/games/levelFour/levelFour.c:73:6:genPw	16	static
+../source/games/levelFour/levelFour.c:84:7:getBuf	4	static
+../source/games/levelFour/levelFour.c:88:6:getPw	4	static

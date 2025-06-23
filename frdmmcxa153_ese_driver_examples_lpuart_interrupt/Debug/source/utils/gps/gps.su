@@ -1,8 +1,8 @@
 ../source/utils/gps/gps.c:27:5:gpsInit	8	static
 ../source/utils/gps/gps.c:56:6:updatePosition	24	static
-../source/utils/gps/gps.c:80:6:parseNMEA	48	static
-../source/utils/gps/gps.c:129:7:convertToDecimal	40	static
-../source/utils/gps/gps.c:141:16:getPosition	4	static
-../source/utils/gps/gps.c:145:16:getTarget	4	static
-../source/utils/gps/gps.c:150:5:getFix	4	static
-../source/utils/gps/gps.c:158:8:strsep	24	static
+../source/utils/gps/gps.c:81:6:parseNMEA	48	static
+../source/utils/gps/gps.c:130:7:convertToDecimal	40	static
+../source/utils/gps/gps.c:142:16:getPosition	4	static
+../source/utils/gps/gps.c:146:16:getTarget	4	static
+../source/utils/gps/gps.c:151:5:getFix	4	static
+../source/utils/gps/gps.c:159:8:strsep	24	static

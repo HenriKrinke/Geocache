@@ -12,7 +12,7 @@
 
 #include "../gpsGame/gpsGame.h"
 #include "../../utils/timer.h"
-
+#include "../../utils/gps/gps.h"
 #include "../../utils/flag.h"
 #include <stdbool.h>
 int cnt1 = 0;
@@ -36,7 +36,7 @@ if(cnt1 == 100)
 {
 setSuccessFlag(true);
 }
-if(*getDistance() < 10){
+if(distance(getPosition(),getTarget()) < 10){
 	//setSuccessFlag(true);
 	}
 }

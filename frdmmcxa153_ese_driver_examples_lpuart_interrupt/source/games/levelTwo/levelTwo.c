@@ -8,6 +8,7 @@
 #include "../gpsGame/gpsGame.h"
 #include "levelTwo.h"
 #include "../../utils/flag.h"
+#include "../../utils/gps/gps.h"
 #include "../../utils/timer.h"
 #include "../../utils/joystick/joystick.h"
 #include <stdbool.h>
@@ -16,36 +17,53 @@ int currentMs;
 int prevMs = 0;
 int prevMs1 = 0;
 
-int interval = 10000;
-int cnt = 0;
+int interval = 30000;
+int redCnt = 0;
+int blueCnt = 0;
+
 void levelTwo()
 {
 
 
 if(getColor() != color)
 {
-cnt++;
 color  = getColor();
 switch(color)
 {
 case BLUE:
+blueCnt++;
 prevMs = *getMs();
 
 //flag for an update LCD function or immediate print
-setLCDFlag(1);
+if(blueCnt < 5)
+{
+setLCDFlag(1); //distance
+}
+else
+{
+	setLCDFlag(0); //clear
+	}
 
 break;
 case RED:
+redCnt++;
 prevMs = *getMs();
 //flag for an update LCD function or immediate print
-setLCDFlag(2);
+if(redCnt < 5)
+{
+setLCDFlag(2); //degree
+}
+else
+{
+	setLCDFlag(0);
+}
 
 
 break;
 case GREEN:
 //flag for an update LCD function or immediate print
-prevMs = *getMs();
-setLCDFlag(3);
+
+setLCDFlag(0); // clear
 
 break;
 }
@@ -70,7 +88,7 @@ if(joystick_sw())
 }
 
 /*
-if(*getDistance() < 10){
+if(distance(getPosition(),getTarget()) < 10){
 	setSuccessFlag(true);
 	}
 */

@@ -1,5 +1,6 @@
-../source/utils/flag.c:20:6:setLCDFlag	16	static
-../source/utils/flag.c:28:6:getLCDFlag	4	static
-../source/utils/flag.c:30:6:setSuccessFlag	16	static
-../source/utils/flag.c:32:7:getSuccessFlag	4	static
-../source/utils/flag.c:36:6:LCDupdate	40	static
+../source/utils/flag.c:20:6:setLevelFlag	16	static
+../source/utils/flag.c:24:6:setLCDFlag	16	static
+../source/utils/flag.c:32:6:getLCDFlag	4	static
+../source/utils/flag.c:34:6:setSuccessFlag	16	static
+../source/utils/flag.c:36:7:getSuccessFlag	4	static
+../source/utils/flag.c:40:6:LCDupdate	56	static

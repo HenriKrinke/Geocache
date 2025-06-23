@@ -52,6 +52,7 @@ source/games/levelThree/levelThree.o source/games/levelThree/levelThree.d: \
  ../source/games/levelThree/../gpsGame/gpsGame.h \
  C:/Users/henri/Documents/MCUXpressoIDE_24.12.148/workspace/frdmmcxa153_ese_driver_examples_lpuart_interrupt/source/utils/gps/gps.h \
  ../source/games/levelThree/../../utils/timer.h \
+ ../source/games/levelThree/../../utils/gps/gps.h \
  ../source/games/levelThree/../../utils/flag.h
 ../source/games/levelThree/levelThree.h:
 ../source/games/levelThree/../../utils/comProtocols/GPIO/gpio_input.h:
@@ -105,4 +106,5 @@ C:\Users\henri\Documents\MCUXpressoIDE_24.12.148\workspace\frdmmcxa153_ese_drive
 ../source/games/levelThree/../gpsGame/gpsGame.h:
 C:/Users/henri/Documents/MCUXpressoIDE_24.12.148/workspace/frdmmcxa153_ese_driver_examples_lpuart_interrupt/source/utils/gps/gps.h:
 ../source/games/levelThree/../../utils/timer.h:
+../source/games/levelThree/../../utils/gps/gps.h:
 ../source/games/levelThree/../../utils/flag.h:

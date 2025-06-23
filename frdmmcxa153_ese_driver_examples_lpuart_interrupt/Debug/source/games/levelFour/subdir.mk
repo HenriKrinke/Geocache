@@ -6,14 +6,25 @@
 C_SRCS += \
 ../source/games/levelFour/levelFour.c 
 
+S_SRCS += \
+../source/games/levelFour/delay.s 
+
 C_DEPS += \
 ./source/games/levelFour/levelFour.d 
 
 OBJS += \
+./source/games/levelFour/delay.o \
 ./source/games/levelFour/levelFour.o 
 
 
 # Each subdirectory must supply rules for building sources it contributes
+source/games/levelFour/%.o: ../source/games/levelFour/%.s source/games/levelFour/subdir.mk
+	@echo 'Building file: $<'
+	@echo 'Invoking: MCU Assembler'
+	arm-none-eabi-gcc -c -x assembler-with-cpp -D__REDLIB__ -I"C:\Users\henri\Documents\MCUXpressoIDE_24.12.148\workspace\frdmmcxa153_ese_driver_examples_lpuart_interrupt\source" -I"C:\Users\henri\Documents\MCUXpressoIDE_24.12.148\workspace\frdmmcxa153_ese_driver_examples_lpuart_interrupt\CMSIS" -I"C:\Users\henri\Documents\MCUXpressoIDE_24.12.148\workspace\frdmmcxa153_ese_driver_examples_lpuart_interrupt\CMSIS\m-profile" -I"C:\Users\henri\Documents\MCUXpressoIDE_24.12.148\workspace\frdmmcxa153_ese_driver_examples_lpuart_interrupt\device" -I"C:\Users\henri\Documents\MCUXpressoIDE_24.12.148\workspace\frdmmcxa153_ese_driver_examples_lpuart_interrupt\device\periph" -g3 -gdwarf-4 -mcpu=cortex-m33+nodsp -mthumb -D__REDLIB__ -specs=redlib.specs -o "$@" "$<"
+	@echo 'Finished building: $<'
+	@echo ' '
+
 source/games/levelFour/%.o: ../source/games/levelFour/%.c source/games/levelFour/subdir.mk
 	@echo 'Building file: $<'
 	@echo 'Invoking: MCU C Compiler'
@@ -25,7 +36,7 @@ source/games/levelFour/%.o: ../source/games/levelFour/%.c source/games/levelFour
 clean: clean-source-2f-games-2f-levelFour
 
 clean-source-2f-games-2f-levelFour:
-	-$(RM) ./source/games/levelFour/levelFour.d ./source/games/levelFour/levelFour.o
+	-$(RM) ./source/games/levelFour/delay.o ./source/games/levelFour/levelFour.d ./source/games/levelFour/levelFour.o
 
 .PHONY: clean-source-2f-games-2f-levelFour
 
